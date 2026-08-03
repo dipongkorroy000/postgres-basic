@@ -1,5 +1,5 @@
 -- Active: 1759210675376@@127.0.0.1@5432@school
-create DATABASE school;
+CREATE DATABASE school;
 
 DROP DATABASE school;
 
@@ -11,11 +11,11 @@ CREATE TABLE students (
     dob DATE
 );
 
-drop TABLE students;
+DROP TABLE students;
 
-drop TABLE if EXISTS students;
+DROP TABLE if EXISTS students;
 
-create TABLE students (
+CREATE TABLE students (
     id SERIAL,
     username VARCHAR(20) NOT NULL,
     email VARCHAR(100),

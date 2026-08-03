@@ -1,4 +1,4 @@
-create TABLE students (
+CREATE TABLE students (
     student_id SERIAL PRIMARY KEY,
     first_name VARCHAR(50) NOT NULL,
     last_name VARCHAR(50) NOT NULL,
@@ -370,10 +370,7 @@ FROM students
 ORDER BY first_name;
 
 -- column alias
-SELECT
-    first_name AS "First Name",
-    last_name AS "Last Name",
-    age AS "Age"
+SELECT first_name AS "First Name", last_name AS "Last Name", age AS "Age"
 FROM students
 ORDER BY "Age";
 
@@ -458,9 +455,11 @@ SELECT * FROM students WHERE first_name LIKE '%d';
 
 SELECT * FROM students WHERE first_name LIKE '%d%';
 
-SELECT * FROM students WHERE first_name LIKE '%d_'; -- must be last, single character
+SELECT * FROM students WHERE first_name LIKE '%d_';
+-- must be last, single character
 
-SELECT * FROM students WHERE email ILIKE 'A%'; -- must be last, single character
+SELECT * FROM students WHERE email ILIKE 'A%';
+-- must be last, single character
 
 ------------ NOT ------
 
@@ -470,17 +469,18 @@ SELECT * FROM students WHERE NOT grade = 'A';
 
 SELECT upper(first_name) as name FROM students;
 
-SELECT concat(first_name, ' ', last_name) as "full name" FROM students;
+SELECT concat(first_name, ' ', last_name) as "full name"
+FROM students;
 
 SELECT length(first_name) as "name" FROM students ORDER BY name ASC;
 
 SELECT avg(age) as avg_age FROM students;
+
 SELECT max(age) as max_age FROM students;
+
 SELECT min(age) as min_age FROM students;
 
 SELECT sum(age) as sum_of_age FROM students;
 
-SELECT count(*) FROM students; --- count row
-
-
-
+SELECT count(*) FROM students;
+--- count row
