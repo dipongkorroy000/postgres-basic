@@ -60,3 +60,20 @@ WHERE
         WHERE
             department_name = 'IT'
     )
+
+SELECT first_name, salary FROM employees ORDER BY salary ASC LIMIT 10 OFFSET 10
+
+SELECT * FROM employees AS emp WHERE salary > (SELECT salary FROM employees as mgr WHERE emp.manager_id = mgr.employee_id)
+
+SELECT * FROM employees LIMIT 5;
+
+WITH temp_table AS (SELECT * FROM employees LIMIT 5)
+SELECT * FROM temp_table
+
+SELECT AVG(salary) AS avg_salary FROM employees WHERE department_id = 60
+
+SELECT MAX(salary) AS max_salary FROM employees WHERE department_id = 20
+
+WITH avg_it AS (SELECT AVG(salary) AS avg_salary from employees WHERE department_id = 60),
+    max_mkt AS (SELECT MAX(salary) AS max_salary FROM employees WHERE department_id = 20)
+    SELECT * FROM employees WHERE salary > (SELECT avg_salary FROM avg_it) AND salary < (SELECT max_salary FROM max_mkt);
